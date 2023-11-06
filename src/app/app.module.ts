@@ -15,6 +15,7 @@ import { ClientConfiguration } from './shared/configuration-service/client-confi
 import { AppInterceptorService } from './shared/interceptor.service';
 import { ProductModule } from './module/product/product.module';
 import { EcomInterceptorService } from './module/product/service/productInterceptor.service';
+import { ThemeService } from './shared/theme.service';
 
 
 export function initializeApp(http: HttpClient) {
@@ -55,7 +56,7 @@ export function initializeApp(http: HttpClient) {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ProductModule
+    ProductModule,
     
   ],
   providers: [

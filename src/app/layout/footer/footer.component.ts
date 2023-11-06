@@ -10,8 +10,12 @@ export class FooterComponent implements OnInit {
   public privacyUrl: string | undefined;
   public termUrl: string | undefined;
   public faqUrl: string | undefined;
+  currentYear: number = new Date().getFullYear();
 
   ngOnInit(): void {
+
+    
+
     this.privacyUrl = ExternalUrlHelper.Urls.footer.privacy;
     this.faqUrl = ExternalUrlHelper.Urls.footer.faq;
     this.termUrl = ExternalUrlHelper.Urls.footer.term;

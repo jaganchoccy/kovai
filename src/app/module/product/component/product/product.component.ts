@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../service/product/product.service';
 import { Product, ProductCategory } from '../../model/product';
+import { ThemeService } from 'src/app/shared/theme.service';
 
 @Component({
   selector: 'app-product',
@@ -15,9 +16,10 @@ export class ProductComponent implements OnInit {
   public productCategories :ProductCategory | any = [];
   showDescription = false;
   selectedOption : number = 0;
+  cacheProduct: Product | any = [];
   
   searchQuery: string = '';
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, public themeService: ThemeService) {}
 
   
 
@@ -26,14 +28,30 @@ export class ProductComponent implements OnInit {
     this.GetAllCategory();
   }
 
+
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
+
   RandamRate(){
     return Math.floor(Math.random() * 900) + 100; 
   }
 
 
   onSearch() {
-    // Implement your search logic here
-    console.log('Search query: ', this.searchQuery);
+    var filteredProducts = [];
+    filteredProducts = this.products.filter((p:Product)=>{
+       return p.productName.toLowerCase().includes(this.searchQuery.toLowerCase())
+      });
+
+      console.log(filteredProducts);
+    this.products = filteredProducts;
+  }
+
+  clear(){
+    this.searchQuery = "";
+    this.GetProducts();
   }
 
   getProductById(){
