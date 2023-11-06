@@ -1,0 +1,13 @@
+<div *ngIf="products" class="cards-container"  >
+    <div *ngFor="let product of products"  class="card">
+        <!-- Have issue in the online api [image url]  -->
+        <img [src]="product.productImageUrl.length > 10 ? product.productImageUrl : 'https://global.appmifile.com/webfile/globalimg/samantha/A2_800x800_black.png'">
+        <div class="product-details">
+            <div class="item-name">{{product.productName}}</div>
+            <div class="price">$ {{product.productPrice}}</div>
+            <span class="category">#{{product.categoryName}}</span>
+        </div>
+        
+        <button class="cart">Add to cart</button>
+    </div>
+</div>

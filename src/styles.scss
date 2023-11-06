@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./variables.scss";
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+
+
+// Define mixins gradient background
+@mixin gradient-background($start-color, $end-color) {
+  background-image: linear-gradient(120deg, $start-color 0%, $end-color 100%);
+}
+
+@mixin button-styles {
+  margin: 10px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: $white;
+  padding: 10px 20px;
+  border: 1px solid $white;
+  border-radius: 4px;
+  @include gradient-background($bg-color-start, $bg-color-end);
+}
+
+// Define a mixin make div center
+@mixin center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@mixin center{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}

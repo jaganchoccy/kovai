@@ -1,0 +1,90 @@
+@import "/src/styles.scss";
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white;
+  color: $white;
+  padding: 20px 20px;
+  border-bottom: 1px solid $grey;
+
+  .nav-icon {
+    width: 20px;
+    padding-right: 10px;
+  }
+
+  &-logo {
+    img {
+      margin: auto 5rem;
+      max-height: 50px;
+    }
+  }
+
+  /* Style for the mobile menu button */
+  &-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Style for the navbar links */
+  &-links {
+    list-style: none;
+    margin: 0 5%;
+    padding: 0;
+    display: flex;
+
+    li {
+      display: flex;
+      margin: auto 30px; 
+
+      a {
+        text-decoration: none;
+        color: $black; 
+        font-weight: normal;
+        font-size: 1.2rem;
+
+        &:hover {
+          color: $black; 
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    &-logo {
+      flex: 1;
+      text-align: center;
+    }
+
+    &-links {
+      display: none;
+      flex-direction: column;
+      background-color: $black;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      padding: 10px 0;
+      z-index: 1;
+
+      &.show-mobile-menu {
+        display: flex;
+      }
+
+      li {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+
+    &-toggle {
+      display: block;
+    }
+  }
+}

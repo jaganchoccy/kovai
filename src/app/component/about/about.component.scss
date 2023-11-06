@@ -1,0 +1,8 @@
+@import "/src/styles.scss";
+
+section{
+    height: calc(100vh - 30vh);
+    @include center;
+    display: block;
+    margin: 10% 30% 0 30%;
+}
