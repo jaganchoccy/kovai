@@ -6,8 +6,13 @@ import { Injectable } from '@angular/core';
 export class ConfigUrl {
 
     productGetUrl: any;
+    productCategoryUrl: any;
+    productByIdUrl:any;
 
     constructor() {
         this.productGetUrl = 'api/Ecomm/GetAllProducts';
+        this.productCategoryUrl= 'api/Ecomm/GetAllCategory';
+        this.productByIdUrl='api/Ecomm/GetAllProductsByCategoryId'
+        
     }
 }

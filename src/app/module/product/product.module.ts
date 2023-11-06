@@ -4,6 +4,7 @@ import { ProductComponent } from './component/product/product.component';
 import { ProductRoutingModule } from './product-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EcomInterceptorService } from './service/productInterceptor.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,6 +14,7 @@ import { EcomInterceptorService } from './service/productInterceptor.service';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ProductRoutingModule
   ],
   providers: [

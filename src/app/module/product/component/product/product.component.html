@@ -1,13 +1,58 @@
-<div *ngIf="products" class="cards-container"  >
-    <div *ngFor="let product of products"  class="card">
-        <!-- Have issue in the online api [image url]  -->
-        <img [src]="product.productImageUrl.length > 10 ? product.productImageUrl : 'https://global.appmifile.com/webfile/globalimg/samantha/A2_800x800_black.png'">
-        <div class="product-details">
-            <div class="item-name">{{product.productName}}</div>
-            <div class="price">$ {{product.productPrice}}</div>
-            <span class="category">#{{product.categoryName}}</span>
-        </div>
-        
-        <button class="cart">Add to cart</button>
+
+<section class="loading" *ngIf="isLoading; else dataContent">
+    <div>loading..</div>
+</section>
+
+<ng-template #dataContent>
+    <div class="join">
+        <div class="category">
+            <select  [(ngModel)]="selectedOption" (change)="getProductById()">
+              <option *ngFor="let value of productCategories" [value]="value.categoryId">{{ value.categoryName }}</option>
+            </select>
+          </div>
+          
+        <div class="search-container">
+            <div>
+                <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearch()" />
+
+            </div>
+            <div class="search-icon" (click)="onSearch()">
+                <img src="assets/icons/serach.svg" alt="search Icon">
+            </div>
+          </div>
+          
     </div>
-</div>
+    <div  *ngIf="products.length > 0; else noProductsList" class="cards-container">
+        <div  *ngFor="let product of products"  class="card">
+            <!-- Have issue in the online api [image url]  -->
+            <div>
+                     
+                
+                        <div class="product-image">
+                            <img alt="{{product.productName}}" [src]="product.productImageUrl.length > 10 ? product.productImageUrl : 'https://global.appmifile.com/webfile/globalimg/samantha/A2_800x800_black.png'">
+                            <div class="description hover-description">{{product.productDescription}}</div>
+                        </div>
+                        <div class="product-details">
+                            <div class="heart-icon">
+                                <img src="assets/icons/heart.svg" alt="Heart Icon"><div>{{RandamRate()}}</div>
+                            </div>
+                        
+                            <div class="item-name">{{product.productName}}</div>
+                            <div class="price">$ {{product.productPrice}}</div>
+                            <span class="category">#{{product.categoryName}}</span>
+                        </div>
+                        <button class="cart">Add to cart</button>
+    
+               
+            </div>
+            
+        </div>
+
+    </div>
+    <ng-template #noProductsList>
+        <div class="loading">
+            <div>No products available. </div>
+            
+        </div>
+    </ng-template>
+  </ng-template>

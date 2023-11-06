@@ -5,6 +5,11 @@
     color: #fff;
     padding: 20px;
     @include center;
+    display: block;
+    .copy{
+        font-size: 14px;
+        padding-top: 8px;
+    }
   }
 
   span {
@@ -12,15 +17,15 @@
     line-height: 25px;
     margin-right: 10px;
   }
+
   nav {
+    font-size: 14px;
     a {
-        cursor: pointer;
+     cursor: pointer;
       color: $blue;
-      font-size: 12px;
-      text-decoration: none;
-      &:hover {
+      font-size: 13px;
         text-decoration: underline;
-      }
+        padding: 0 5px;
     }
   }
   

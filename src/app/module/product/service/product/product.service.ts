@@ -13,4 +13,15 @@ export class ProductService {
     let productGetUrl = this.ConstURL.productGetUrl;
     return this.httpService.makeHTTPGETRequest(productGetUrl);
   }
+
+  GetproductCategory() {
+    let productCategoryUrl = this.ConstURL.productCategoryUrl;
+    return this.httpService.makeHTTPGETRequest(productCategoryUrl);
+  }
+
+  GetProductById(id:Number | undefined) {
+    debugger
+    let productByIdUrl = this.ConstURL.productByIdUrl + '?id='+id;
+    return this.httpService.makeHTTPGETRequest(productByIdUrl);
+  }
 }

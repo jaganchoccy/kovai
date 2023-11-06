@@ -1,27 +1,93 @@
 @import "/src/styles.scss";
 
+
+.loading{
+    height: calc(100vh - 30vh);
+    div{
+        @include center-absolute;
+    }
+
+}
+
+
+.join{
+    display: flex;
+    margin: 1% 7% 1% 7%;
+    justify-content: space-between;
+    select{
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;   
+        padding: 10px;
+    }
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  }
+  
+  .search-icon {
+    cursor: pointer;
+    max-width: 45px;
+    img{
+     
+        width: 40%;
+    padding: 8px;
+border: none;
+    }
+  }
+
+.category{
+    display: inline-grid;
+}
+
 .cards-container {
     display: flex;
     flex-wrap: wrap; 
     justify-content: center; 
+    
   }
-  
+
+  .cardmain{
+       
+  }
   .card {
+   
     flex: 0 1 calc(25%); 
+    border-radius: 4px;
     margin: 10px;
     padding: 20px;
     border: 1px solid #ccc;
     text-align: center;
-    img{
-        width: 50%;
-        height: 200px;
+    .product-image{
+        img{
+            width: 50%;
+            height: 200px;
+        }
+   
+    }
+    .heart-icon{
+        
+        position: absolute;
+        text-align: right;
+        right: 0;
+        img{
+            width: 14%;
+        }
     }
     .product-details{
+        position: relative;
         height: 100px;
         text-align: left;
-        .item-name{
-
-        }
         .price{
             font-weight: 600;
             padding: 6px 0px;
@@ -35,16 +101,46 @@
             font-size: 14px;
         }
     }
-    .cart{
-      
+    .cart {
         @include button-styles;
         width: 100%;
         margin: 0px;
         background-image: none;
-        background-color: black;
-    }
+        background-color: green;
+        font-size: 1rem;
+        
+        &:hover {
+          color: $black;
+
+          background-color: $white;
+          border: 2px solid $green;
+        }
+      }      
+
   }
 
+  .card {
+    position: relative;
+  }
+  
+  .hover-description {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.632);
+    color: white;
+    height: 170px;
+    padding: 20px 30px;
+    transition: all 0.5s;
+  }
+  
+  .product-image:hover .hover-description {
+    display: block;
+  }
+  
   
   @media (max-width: 768px) {
     .cards-container {

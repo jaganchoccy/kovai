@@ -11,3 +11,9 @@ export interface Product {
     productImageUrl:    string;
     categoryName:       string;
 }
+
+export interface ProductCategory {
+    parentCategoryId:   number;
+    categoryName:         string;
+    categoryId:         number;
+}
