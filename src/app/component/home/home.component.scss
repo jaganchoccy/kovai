@@ -32,4 +32,17 @@ section {
     }
     @include button-styles;
   }
+
 }
+    /* Responsive styles */
+    @media (max-width: 768px) {
+    section {
+          h1{
+            font-size: 30px;
+          }
+
+              div {
+                width: 100%;
+              }
+        }
+  }

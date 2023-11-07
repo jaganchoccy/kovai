@@ -187,5 +187,12 @@
       grid-template-columns: 1fr; /* Display one column in mobile view */
       grid-gap: 10px;
     }
+    .join{
+        display: block;
+        margin: 3%;
+    }
+    input{
+        width: 281px !important;
+    }
   }
   

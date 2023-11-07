@@ -20,6 +20,32 @@ article {
   }
   
   .slide-right-to-left {
-    animation: slideRightToLeft 10s linear infinite; // Adjust the duration as needed
+    animation: slideRightToLeft 4s linear infinite; // Adjust the duration as needed
+  }
+}
+
+
+  
+  
+@media only screen and (max-width: 768px) {
+
+  article {
+  .offer-text {
+    font-size: 12px;
+  }
+  
+}
+
+  .slide-right-to-left {
+    animation: slideRightToLeftMobile 2s linear infinite !important; /* Adjust the duration as needed */
+  }
+
+  @keyframes slideRightToLeftMobile {
+    0% {
+      margin-left: 20%;
+    }
+    100% {
+      margin-left: 0%;
+    }
   }
 }

@@ -7,8 +7,17 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   public mobileMenuOpen: boolean = false;
+  sideBarPosition: string | undefined;
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+  slideOut(){
+    this.sideBarPosition = '0px';
+
+  }
+  slideIn(){
+    this.sideBarPosition = '-300px';
+    
   }
 }

@@ -7,24 +7,26 @@
     <img src="assets/images/logo.png" alt="App Logo">
   </div>
   <div class="navbar-toggle" (click)="toggleMobileMenu()">
-    <i class="fas fa-bars"></i>
+    ☰
   </div>
   <ul class="navbar-links" [ngClass]="{ 'show-mobile-menu': mobileMenuOpen }">
-    <li>
+    <li (click)="toggleMobileMenu()">
       <img class="nav-icon" src="assets/icons/home.svg" alt="Home Icon">
       <a routerLink="/">Home</a>
     </li>
-    <li>
+    <li (click)="toggleMobileMenu()">
       <img class="nav-icon" src="assets/icons/cart.svg" alt="Cart Icon">
       <a routerLink="/products">Products</a>
     </li>
-    <li>
+    <li (click)="toggleMobileMenu()">
       <img class="nav-icon" src="assets/icons/person.svg" alt="Person Icon">
       <a routerLink="/about">About Us</a>
     </li>
-    <li>
+    <li (click)="toggleMobileMenu()">
       <img class="nav-icon" src="assets/icons/phone.svg" alt="Phone Icon">
       <a routerLink="/contact">Contact</a>
     </li>
   </ul>
 </nav>
+
+

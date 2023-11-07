@@ -21,14 +21,10 @@ export class ProductComponent implements OnInit {
   searchQuery: string = '';
   constructor(private productService: ProductService, public themeService: ThemeService) {}
 
-  
-
   ngOnInit(): void {
     this.GetProducts();
     this.GetAllCategory();
   }
-
-
 
   toggleTheme() {
     this.themeService.toggleTheme();
@@ -37,7 +33,6 @@ export class ProductComponent implements OnInit {
   RandamRate(){
     return Math.floor(Math.random() * 900) + 100; 
   }
-
 
   onSearch() {
     var filteredProducts = [];
@@ -60,7 +55,7 @@ export class ProductComponent implements OnInit {
     }else{
       this.productService.GetProductById(this.selectedOption).subscribe({
         next: (res: any) => {
-          debugger
+          
           if(res && res.result){
             this.products = res?.data;
             this.isLoading = false;

@@ -6,3 +6,10 @@ section{
     display: block;
     margin: 10% 30% 0 30%;
 }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        section {
+         margin: 10%;
+      }
+    }

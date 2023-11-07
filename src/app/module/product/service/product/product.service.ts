@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   GetProductById(id:Number | undefined) {
-    debugger
+    
     let productByIdUrl = this.ConstURL.productByIdUrl + '?id='+id;
     return this.httpService.makeHTTPGETRequest(productByIdUrl);
   }
