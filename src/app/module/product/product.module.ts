@@ -6,8 +6,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EcomInterceptorService } from './service/productInterceptor.service';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     ProductComponent

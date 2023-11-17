@@ -11,7 +11,7 @@ export class AppInterceptorService implements HttpInterceptor {
             url: "" + req.url,
             headers: req.headers.set('Content-Type', 'application/json')
         });
-        return next.handle(duplicate)
+                return next.handle(duplicate)
             .pipe(
                 tap((result) => {
                     console.log('through interceptor success')

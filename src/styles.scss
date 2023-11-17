@@ -15,7 +15,7 @@ html, body {
   }
 
 
-// Define mixins gradient background
+// Define mixins gradient background with function
 @mixin gradient-background($start-color, $end-color) {
   background-image: linear-gradient(120deg, $start-color 0%, $end-color 100%);
 }
@@ -39,10 +39,11 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+// bad
 
 @mixin center{
   text-align: center;
   display: flex;
   justify-content: center;
 }
+//good

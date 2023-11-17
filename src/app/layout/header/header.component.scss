@@ -2,7 +2,7 @@
 
 .navbar {
   position: sticky;
-  top: 0;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +46,7 @@
         text-decoration: none;
         color: $black; 
         font-weight: normal;
-        font-size: 1.2rem;
+        font-size: clamp(1.2rem, 22px, 24px);
 
         &:hover {
           color: $black; 
@@ -83,10 +83,8 @@
       li {
         margin: 10px 0;
         text-align: center;
-        font-size: 12px;
         a{
           color: #fff;
-          font-size: 16px;
         }
         &:hover{
           color: #fff;

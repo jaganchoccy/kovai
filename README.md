@@ -35,3 +35,11 @@ https://onlinetestapi.gerasim.in/index.html
 Please click here to demo [link](https://kovai-cbe.web.app),
 if you face any cors origin issue please disable the cros in chrome browser.
 
+## For Window
+
+![Alt text](<src/assets/windows.png>)
+
+
+## For MAC
+
+#### open /Applications/Google\ Chrome.app --args --user-data-dir="/var/tmp/Chrome dev session" --disable-web-security

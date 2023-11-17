@@ -12,12 +12,4 @@ export class HeaderComponent {
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
-  slideOut(){
-    this.sideBarPosition = '0px';
-
-  }
-  slideIn(){
-    this.sideBarPosition = '-300px';
-    
-  }
 }

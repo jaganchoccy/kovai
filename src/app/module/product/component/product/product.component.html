@@ -1,65 +1,94 @@
-<button class="dl-btn" (click)="toggleTheme()">dark/light</button>
-<div id="product" [ngClass]="{'dark-theme': themeService.currentTheme === 'dark', 'light-theme': themeService.currentTheme === 'light'}">
+
+<aside><button class="dl-btn" (click)="toggleTheme()">dark/light</button></aside>
+<main>
+  <div
+    id="product"
+    [ngClass]="{
+      'dark-theme': themeService.currentTheme === 'dark',
+      'light-theme': themeService.currentTheme === 'light'
+    }"
+  >
     <section class="loading" *ngIf="isLoading; else dataContent">
-        <div>loading..</div>
-    </section>
-    
-    <ng-template #dataContent>
-        <div class="join">
-            <div class="category">
-                <select  [(ngModel)]="selectedOption" (change)="getProductById()">
-                  <option *ngFor="let value of productCategories" [value]="value.categoryId">{{ value.categoryName }}</option>
-                </select>
-              </div>
-              
-            <div class="search-container">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" />
-                    <span *ngIf="searchQuery != ''" (click)="clear()" class="clear-icon">&times;</span>
-                </div>
-                <div>
-                    <div class="search-icon" (click)="onSearch()">
-                        <img src="assets/icons/serach.svg" alt="search Icon">
-                    </div>
-                    
-                </div>
-            
-              </div>
-              
-              
+        <div>
+            <label for="loading">loading.. </label>
+            <progress id="loading" value="80" max="100"> 32% </progress>
         </div>
-        <div  *ngIf="products.length > 0; else noProductsList" class="cards-container">
-            <div  *ngFor="let product of products"  class="card">
-                <!-- Have issue in the online api [image url]  -->
-                <div>
-                         
-                    
-                            <div class="product-image">
-                                <img alt="{{product.productName}}" [src]="product.productImageUrl.length > 10 ? product.productImageUrl : 'https://global.appmifile.com/webfile/globalimg/samantha/A2_800x800_black.png'">
-                                <div class="description hover-description">{{product.productDescription}}</div>
-                            </div>
-                            <div class="product-details">
-                                <div class="heart-icon">
-                                    <img src="assets/icons/heart.svg" alt="Heart Icon"><div>{{RandamRate()}}</div>
-                                </div>
-                            
-                                <div class="item-name">{{product.productName}}</div>
-                                <div class="price">$ {{product.productPrice}}</div>
-                                <span class="category">#{{product.categoryName}}</span>
-                            </div>
-                            <button class="cart">Add to cart</button>
         
-                   
-                </div>
-                
-            </div>
-    
+    </section>
+
+    <ng-template #dataContent>
+      <div class="join">
+        <div class="category">
+          <select [(ngModel)]="selectedOption" (change)="getProductById()">
+            <option
+              *ngFor="let value of productCategories"
+              [value]="value.categoryId"
+            >
+              {{ value.categoryName }}
+            </option>
+          </select>
         </div>
-        <ng-template #noProductsList>
-            <div class="loading">
-                <div>No products available. </div>
-                
+
+        <div class="search-container">
+          <div class="search-bar">
+            <input
+              type="text"
+              placeholder="Search..."
+              [(ngModel)]="searchQuery"
+            />
+            <span *ngIf="searchQuery != ''" (click)="clear()" class="clear-icon"
+              >&times;</span
+            >
+          </div>
+          <div>
+            <div class="search-icon" (click)="onSearch()">
+              <img src="assets/icons/serach.svg" alt="search Icon" />
             </div>
-        </ng-template>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="products.length > 0; else noProductsList"
+        class="cards-container"
+      >
+        <div *ngFor="let product of products" class="card">
+          <!-- Have issue in the online api [image url]  -->
+          <article>
+            <figure class="product-image">
+              <img
+                alt="{{ product.productName }}"
+                [src]="
+                  product.productImageUrl.length > 10
+                    ? product.productImageUrl
+                    : 'https://global.appmifile.com/webfile/globalimg/samantha/A2_800x800_black.png'
+                "
+              />
+              <figcaption  class="description hover-description">
+                {{ product.productDescription }}
+              </figcaption >
+            </figure>
+            <div class="product-details">
+              <div class="heart-icon">
+                <img src="assets/icons/heart.svg" alt="Heart Icon" />
+                <div>{{ RandamRate() }}</div>
+                <label for="ratings">ratings : </label>
+                <meter id="ratings" value="0.6">60%</meter>
+              </div>
+             
+              <div class="item-name">{{ product.productName }}</div>
+              <div class="price">$ {{ product.productPrice }}</div>
+              <span class="category">#{{ product.categoryName }}</span>
+            
+            </div>
+            <button class="cart">Add to cart</button>
+          </article>
+        </div>
+      </div>
+      <ng-template #noProductsList>
+        <div class="loading">
+          <div>No products available.</div>
+        </div>
       </ng-template>
-</div>
+    </ng-template>
+  </div>
+</main>

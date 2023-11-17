@@ -10,7 +10,7 @@ import { ClientConfiguration } from './shared/configuration-service/client-confi
 export class AppComponent {
  
 
-  constructor(private httpClient: HttpClient) {}
+  constructor() {}
 
 
 }
