@@ -9,7 +9,7 @@ export class ProductService {
 
   constructor(private ConstURL: ConfigUrl, private httpService: HTTPService) { }
 
-  GetProducts() {
+  GetAllProducts() {
     let productGetUrl = this.ConstURL.productGetUrl;
     return this.httpService.makeHTTPGETRequest(productGetUrl);
   }

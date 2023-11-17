@@ -24,15 +24,11 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetProducts();
-    this.GetAllCategory();
+    this.GetAllCategories();
   }
 
   toggleTheme() {
     this.themeService.toggleTheme();
-  }
-
-  RandamRate() {
-    return Math.floor(Math.random() * 900) + 100;
   }
 
   onSearch() {
@@ -74,32 +70,32 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  private GetAllCategory() {
+  GetAllCategories() {
     this.productService.GetproductCategory().subscribe({
       next: (res: any) => {
         if (res && res.result) {
-          this.productCategories = res?.data;
-
-          let label = {
-            parentCategoryId: 0,
-            categoryName: 'Categories',
-            categoryId: 0,
-          };
-
-          this.productCategories.unshift(label);
+          this.productCategories = [
+            {
+              parentCategoryId: 0,
+              categoryName: 'Categories',
+              categoryId: 0,
+            },
+            ...res.data
+          ];
         }
       },
-      error: (e) => {
-        console.error(e);
+      error: (error) => {
+        console.error(error);
       },
-      complete() {
-        console.log('is completed');
+      complete: () => {
+        console.log('Operation completed');
       },
     });
   }
+  
 
-  private GetProducts() {
-    this.productService.GetProducts().subscribe({
+   GetProducts() {
+    this.productService.GetAllProducts().subscribe({
       next: (res: any) => {
         if (res && res.result) {
           this.products = res?.data;
